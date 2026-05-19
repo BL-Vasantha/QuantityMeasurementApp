@@ -12,7 +12,6 @@ public enum VolumeUnit implements Measurable {
         this.conversionFactor = conversionFactor;
     }
 
-
     @Override
     public double getConversionFactor() {
         return conversionFactor;
