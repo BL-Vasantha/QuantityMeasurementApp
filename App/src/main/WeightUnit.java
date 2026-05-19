@@ -1,16 +1,15 @@
 package main;
 
-public enum LengthUnit {
+public enum WeightUnit {
 
-    FEET(1.0),
-    INCHES(1.0 / 12.0),
-    YARDS(3.0),
-    CENTIMETERS(1.0 / 30.48);
+    KILOGRAM(1.0),
+    GRAM(0.001),
+    POUND(0.453592);
 
-    // Conversion factor relative to FEET (base unit)
+    // Conversion factor relative to KILOGRAM
     private final double conversionFactor;
 
-    LengthUnit(double conversionFactor) {
+    WeightUnit(double conversionFactor) {
         this.conversionFactor = conversionFactor;
     }
 
@@ -18,7 +17,7 @@ public enum LengthUnit {
         return conversionFactor;
     }
 
-    // Convert current unit value to base unit (FEET)
+    // Convert to base unit (KILOGRAM)
     public double convertToBaseUnit(double value) {
 
         validateValue(value);
@@ -26,7 +25,7 @@ public enum LengthUnit {
         return value * conversionFactor;
     }
 
-    // Convert base unit (FEET) value to current unit
+    // Convert from base unit (KILOGRAM)
     public double convertFromBaseUnit(double baseValue) {
 
         validateValue(baseValue);

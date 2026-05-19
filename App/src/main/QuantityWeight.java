@@ -1,10 +1,16 @@
 package main;
 
-public record QuantityLength(double value, LengthUnit unit) {
+public class QuantityWeight {
 
     private static final double EPSILON = 0.0001;
 
-    public QuantityLength {
+    private final double value;
+    private final WeightUnit unit;
+
+    public QuantityWeight(
+            double value,
+            WeightUnit unit
+    ) {
 
         validateValue(value);
 
@@ -14,6 +20,8 @@ public record QuantityLength(double value, LengthUnit unit) {
             );
         }
 
+        this.value = value;
+        this.unit = unit;
     }
 
     // Validation
@@ -26,9 +34,18 @@ public record QuantityLength(double value, LengthUnit unit) {
         }
     }
 
-    // Convert to target unit
-    public QuantityLength convertTo(
-            LengthUnit targetUnit
+    // Getters
+    public double getValue() {
+        return value;
+    }
+
+    public WeightUnit getUnit() {
+        return unit;
+    }
+
+    // Convert to another unit
+    public QuantityWeight convertTo(
+            WeightUnit targetUnit
     ) {
 
         if (targetUnit == null) {
@@ -43,24 +60,24 @@ public record QuantityLength(double value, LengthUnit unit) {
         double convertedValue =
                 targetUnit.convertFromBaseUnit(baseValue);
 
-        return new QuantityLength(
+        return new QuantityWeight(
                 convertedValue,
                 targetUnit
         );
     }
 
-    // UC6 addition
-    public QuantityLength add(
-            QuantityLength other
+    // Addition (default target = first operand unit)
+    public QuantityWeight add(
+            QuantityWeight other
     ) {
 
         return add(other, this.unit);
     }
 
-    // UC7 addition with explicit target unit
-    public QuantityLength add(
-            QuantityLength other,
-            LengthUnit targetUnit
+    // Addition with explicit target unit
+    public QuantityWeight add(
+            QuantityWeight other,
+            WeightUnit targetUnit
     ) {
 
         if (other == null) {
@@ -91,7 +108,7 @@ public record QuantityLength(double value, LengthUnit unit) {
                         totalBase
                 );
 
-        return new QuantityLength(
+        return new QuantityWeight(
                 result,
                 targetUnit
         );
@@ -110,8 +127,8 @@ public record QuantityLength(double value, LengthUnit unit) {
             return false;
         }
 
-        QuantityLength other =
-                (QuantityLength) obj;
+        QuantityWeight other =
+                (QuantityWeight) obj;
 
         double thisBase =
                 unit.convertToBaseUnit(value);
@@ -124,6 +141,16 @@ public record QuantityLength(double value, LengthUnit unit) {
         return Math.abs(
                 thisBase - otherBase
         ) < EPSILON;
+    }
+
+    // hashCode
+    @Override
+    public int hashCode() {
+
+        double baseValue =
+                unit.convertToBaseUnit(value);
+
+        return Double.hashCode(baseValue);
     }
 
     @Override
