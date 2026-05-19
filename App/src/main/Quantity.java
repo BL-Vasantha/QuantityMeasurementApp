@@ -4,6 +4,7 @@ public class Quantity<U extends Measurable> {
 
     private static final double EPSILON = 0.0001;
 
+
     private final double value;
     private final U unit;
 
