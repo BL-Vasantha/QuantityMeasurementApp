@@ -2,11 +2,11 @@ package test;
 
 import main.LengthUnit;
 import main.Quantity;
-import org.junit.Test;
-import main.WeightUnit;
 import main.VolumeUnit;
+import main.WeightUnit;
+import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class QuantityArithmeticTest {
 

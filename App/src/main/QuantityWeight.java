@@ -12,6 +12,7 @@ public class QuantityWeight {
             WeightUnit unit
     ) {
 
+
         validateValue(value);
 
         if (unit == null) {
