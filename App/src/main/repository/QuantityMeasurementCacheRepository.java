@@ -1,7 +1,6 @@
 package main.repository;
 
 import main.entity.QuantityMeasurementEntity;
-import main.repository.IQuantityMeasurementRepository;
 
 import java.util.ArrayList;
 import java.util.List;

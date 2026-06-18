@@ -5,7 +5,6 @@ import main.Quantity;
 import main.WeightUnit;
 import org.junit.Test;
 
-
 import static org.junit.Assert.*;
 
 public class QuantityRefactorTest {

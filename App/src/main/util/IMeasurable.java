@@ -1,6 +1,6 @@
-package main;
+package main.util;
 
-public interface Measurable {
+public interface IMeasurable {
 
     double getConversionFactor();
 
@@ -22,7 +22,6 @@ public interface Measurable {
         // No restriction for most units
     }
 }
-
 
 @FunctionalInterface
 interface SupportsArithmetic {
