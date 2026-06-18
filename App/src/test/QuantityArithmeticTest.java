@@ -2,10 +2,12 @@ package test;
 
 import main.LengthUnit;
 import main.Quantity;
+
+import main.LengthUnit;
+import main.Quantity;
 import main.VolumeUnit;
 import main.WeightUnit;
 import org.junit.Test;
-
 
 import static org.junit.Assert.*;
 

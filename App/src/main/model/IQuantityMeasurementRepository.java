@@ -1,5 +1,4 @@
-package main.repository;
-
+package main.model;
 
 import main.entity.QuantityMeasurementEntity;
 

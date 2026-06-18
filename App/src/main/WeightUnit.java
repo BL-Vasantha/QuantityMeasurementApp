@@ -1,8 +1,8 @@
 package main;
 
-import main.Measurable;
+import main.util.IMeasurable;
 
-public enum WeightUnit implements Measurable {
+public enum WeightUnit implements IMeasurable {
 
     KILOGRAM(1.0),
     GRAM(0.001),
@@ -28,7 +28,6 @@ public enum WeightUnit implements Measurable {
     public double convertFromBaseUnit(double baseValue) {
         return baseValue / conversionFactor;
     }
-
 
     @Override
     public String getUnitName() {

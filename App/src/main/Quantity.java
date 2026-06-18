@@ -1,8 +1,10 @@
 package main;
 
+import main.util.IMeasurable;
+
 import java.util.function.DoubleBinaryOperator;
 
-public class Quantity<U extends Measurable> {
+public class Quantity<U extends IMeasurable> {
 
     private static final double EPSILON = 0.0001;
 

@@ -1,8 +1,8 @@
 package main;
 
-import main.Measurable;
+import main.util.IMeasurable;
 
-public enum VolumeUnit implements Measurable {
+public enum VolumeUnit implements IMeasurable {
 
     LITRE(1.0),
     MILLILITRE(0.001),

@@ -1,10 +1,10 @@
 package main;
 
-import main.Measurable;
+import main.util.IMeasurable;
 
 import java.util.function.Function;
 
-public enum TemperatureUnit implements Measurable {
+public enum TemperatureUnit implements IMeasurable {
 
     CELSIUS(
             c -> c, // to base (Celsius)

@@ -5,8 +5,7 @@ import main.dto.QuantityDTO;
 import main.entity.QuantityMeasurementEntity;
 import main.exception.QuantityMeasurementException;
 import main.repository.IQuantityMeasurementRepository;
-
-;
+import main.util.IMeasurable;
 
 public class QuantityMeasurementServiceImpl
         implements IQuantityMeasurementService {
@@ -53,7 +52,7 @@ public class QuantityMeasurementServiceImpl
         try {
             Quantity quantity = mapToQuantity(q);
 
-            Measurable target =
+            IMeasurable target =
                     resolveUnit(q.getType(), targetUnit);
 
             Quantity result = quantity.convertTo(target);
@@ -100,13 +99,13 @@ public class QuantityMeasurementServiceImpl
 
     private Quantity<?> mapToQuantity(QuantityDTO dto) {
 
-        Measurable unit =
+        IMeasurable unit =
                 resolveUnit(dto.getType(), dto.getUnit());
 
         return new Quantity<>(dto.getValue(), unit);
     }
 
-    private Measurable resolveUnit(
+    private IMeasurable resolveUnit(
             String type,
             String unit
     ) {
