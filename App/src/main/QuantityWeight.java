@@ -1,5 +1,7 @@
 package main;
 
+import main.WeightUnit;
+
 public class QuantityWeight {
 
     private static final double EPSILON = 0.0001;
@@ -11,7 +13,6 @@ public class QuantityWeight {
             double value,
             WeightUnit unit
     ) {
-
 
         validateValue(value);
 
