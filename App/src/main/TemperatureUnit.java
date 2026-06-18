@@ -1,5 +1,7 @@
 package main;
 
+import main.Measurable;
+
 import java.util.function.Function;
 
 public enum TemperatureUnit implements Measurable {
@@ -16,7 +18,6 @@ public enum TemperatureUnit implements Measurable {
 
     private final Function<Double, Double> toBase;
     private final Function<Double, Double> fromBase;
-
 
     // Temperature DOES NOT support arithmetic
     private final SupportsArithmetic supportsArithmetic = () -> false;

@@ -1,8 +1,7 @@
 package main;
 
-import main.Measurable;
-
 public enum LengthUnit implements Measurable {
+
 
     FEET(1.0),
     INCHES(1.0 / 12.0),
