@@ -1,5 +1,7 @@
 package main;
 
+import main.Measurable;
+
 public enum VolumeUnit implements Measurable {
 
     LITRE(1.0),
